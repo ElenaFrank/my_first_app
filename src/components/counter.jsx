@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 
 const Counter = (props) => {
-    // console.log(props.value)
+
     const [value, setValue] = useState(props.value)
 
     const getCounter = () => {
@@ -25,7 +25,8 @@ const Counter = (props) => {
 
     return (
         
-    <div>  
+    <div>
+        <span>{props.name}</span>  
         <span className={getBadgeClasses()}>{getCounter()}</span>
         <button className="btn btn-primary btn-sm m-2 " onClick={handleIncrement}>+</button>
         <button className="btn btn-primary btn-sm m-2 " onClick={handleDecrement}>-</button>
