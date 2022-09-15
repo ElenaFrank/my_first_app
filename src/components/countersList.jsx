@@ -14,22 +14,32 @@ const Counters = () => {
     const [counters, setCounter] = useState(initState)
 
     const handleIncrement = (id) => {
-        setCounter(initState=>initState.map(c => {
-            if (c.id === id) {
-                c.value += 1
-            }
-            return c
-        }))   
+        // setCounter(initState=>initState.map(c => {
+        //     if (c.id === id) {
+        //         c.value += 1
+        //     }
+        //     return c
+        // }))   
+
+        const idState = counters.findIndex(c => c.id===id)
+        const newState = [...counters]
+        newState[idState].value++
+        setCounter(newState)
     }
 
     const handleDecrement = (id) => {
 
-        setCounter(initState=>initState.map(c => {
-            if(c.id===id) {
-                c.value -= 1
-            }
-            return c
-        }))
+        // setCounter(initState=>initState.map(c => {
+        //     if(c.id===id) {
+        //         c.value -= 1
+        //     }
+        //     return c
+        // }))
+
+        const idState = counters.findIndex(c => c.id===id)
+        const newState = [...counters]
+        newState[idState].value--
+        setCounter(newState)
     }
 
     const handleDelete = (id) => {
